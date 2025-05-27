@@ -1,0 +1,11 @@
+var1,var2,n,pearson,spearman,exclude_zeros
+user_reception_score,violence_score,19063,-0.015290811869402017,-0.015447706853819446,True
+user_reception_score,no_sup_lang,81154,0.05120920718829202,0.16463759830431854,True
+user_reception_score,log_concurrent_users_yesterday,18905,0.2175736738009721,0.252015880143944,True
+user_reception_score,log_price,68580,0.18766130354906355,0.20504780656077912,True
+violence_score,no_sup_lang,19467,0.04215839926003387,0.02830011794111709,True
+violence_score,log_concurrent_users_yesterday,5585,0.10765629198471721,0.09078615521699478,True
+violence_score,log_price,17837,0.06353397069842194,0.04975105569814316,True
+no_sup_lang,log_concurrent_users_yesterday,18900,0.24688260465058406,0.2614229648682281,True
+no_sup_lang,log_price,70833,0.017715094901582344,0.17902657609661418,True
+log_concurrent_users_yesterday,log_price,17268,0.358733036234439,0.3697787887558239,True

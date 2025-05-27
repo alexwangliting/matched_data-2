@@ -1,0 +1,9 @@
+Correlation Analysis Results
+==========================
+Correlation between 'user_reception_score' and 'no_sup_lang': 0.0549
+Correlation between 'user_reception_score' and 'violence_score': 0.0290
+Correlation between 'user_reception_score' and 'price': 0.0701
+Correlation between 'user_reception_score' and 'concurrent_users_yesterday': 0.0138
+Correlation between 'concurrent_users_yesterday' and 'no_sup_lang': 0.0202
+Correlation between 'concurrent_users_yesterday' and 'violence_score': 0.0202
+Correlation between 'concurrent_users_yesterday' and 'price': 0.0150
