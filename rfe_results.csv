@@ -1,5 +1,0 @@
-outcome,n_features,selected_features
-User Reception,5,"['n_genres', 'metacritic_score', 'no_sup_lang', 'price', 'violence_score']"
-User Reception,10,"['game_age_days', 'dlc_count', 'achievements', 'n_genres', 'n_tags', 'metacritic_score', 'no_sup_lang', 'n_full_audio_lang', 'price', 'violence_score']"
-Player Engagement,5,"['n_genres', 'n_tags', 'metacritic_score', 'n_full_audio_lang', 'violence_score']"
-Player Engagement,10,"['game_age_days', 'dlc_count', 'achievements', 'n_genres', 'n_tags', 'metacritic_score', 'no_sup_lang', 'n_full_audio_lang', 'price', 'violence_score']"
