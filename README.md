@@ -22,7 +22,6 @@ Our findings aim to inform game developers, publishers, and industry analysts ab
 - [Requirements](#requirements)
 - [Project Structure](#project-structure)
 - [Acknowledgements](#acknowledgements)
-- [License](#license)
 
 ---
 
