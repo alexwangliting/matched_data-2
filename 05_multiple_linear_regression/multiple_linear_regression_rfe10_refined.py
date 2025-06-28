@@ -4,7 +4,7 @@ import matplotlib.pyplot as plt
 import statsmodels.api as sm
 from typing import List
 
-INPUT_PATH = "matched_data/engineered_features.csv"
+INPUT_PATH = "04_FeatureEngineering_FeatureSelection/engineered_features.csv"
 PLOT_DIR = "matched_data/"
 
 MODELS = [
@@ -35,6 +35,17 @@ def run_refined_regression(df: pd.DataFrame, y: str, X: List[str], model_name: s
     model = sm.OLS(Y, Xmat).fit()
     print(f"\n=== Refined Linear Regression Results: {model_name} ===")
     print(model.summary())
+    # Save regression results to CSV
+    results_df = pd.DataFrame({
+        "Variable": model.params.index,
+        "Coefficient": model.params.values,
+        "Std Error": model.bse.values,
+        "t-value": model.tvalues.values,
+        "p-value": model.pvalues.values,
+    })
+    out_csv = f"05_multiple_linear_regression/Final Regression Results - {model_name}.csv"
+    results_df.to_csv(out_csv, index=False)
+    print(f"Saved regression results to {out_csv}")
     # Print regression equation
     coefs = model.params
     eqn = f"{y} = {coefs[0]:.4f}"
