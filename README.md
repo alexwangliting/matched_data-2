@@ -235,7 +235,6 @@ Scripts for generating plots are in the same directory, e.g., `plot_correlation_
 
 - Python 3.10+
 - pandas, numpy, scikit-learn, matplotlib, seaborn, statsmodels
-- (Optional) Jupyter Notebook for interactive exploration
 
 Install dependencies:
 ```bash
@@ -282,23 +281,3 @@ pip install -r requirements.txt
 - Kaggle and Steam Insights for public datasets.
 - scikit-learn and statsmodels for modeling tools.
 - matplotlib and seaborn for visualization.
-
----
-
-## License
-
-MIT License
-
----
-
-## Contact
-
-For questions or collaboration, please open an issue or contact [Your Name](mailto:your.email@example.com).
-
----
-
-**If you use this project or its findings, please cite this repository!**
-
----
-
-Let me know if you want a shorter version, want to add badges, or need a requirements.txt template! 
