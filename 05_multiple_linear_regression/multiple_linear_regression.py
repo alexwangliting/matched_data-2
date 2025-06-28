@@ -5,7 +5,7 @@ import matplotlib.pyplot as plt
 import statsmodels.api as sm
 from typing import List
 
-INPUT_PATH = "matched_data/steam_clean_preprocessed.json"
+INPUT_PATH = "02_combining_preprocessing_datasets/steam_clean_preprocessed.json"
 PLOT_DIR = "matched_data/"
 
 VARS = [
@@ -25,7 +25,14 @@ def load_data(input_path: str) -> pd.DataFrame:
 
 
 def run_regression(df: pd.DataFrame, y: str, X: List[str], model_name: str) -> None:
-    """Run OLS regression, print summary, and save residual plot."""
+    """Run OLS regression, print summary, save residual plot, and export results to CSV for User Reception model.
+
+    Args:
+        df (pd.DataFrame): Input data.
+        y (str): Dependent variable name.
+        X (List[str]): List of independent variable names.
+        model_name (str): Name of the regression model.
+    """
     # Only use rows with nonzero values for all variables
     sub = df[[y] + X].dropna()
     for col in [y] + X:
@@ -35,6 +42,18 @@ def run_regression(df: pd.DataFrame, y: str, X: List[str], model_name: str) -> N
     model = sm.OLS(Y, Xmat).fit()
     print(f"\n=== Regression Results: {model_name} ===")
     print(model.summary())
+    # Save regression results as CSV for both models
+    safe_model_name = model_name.replace(" ", "_")
+    out_csv = f"05_multiple_linear_regression/Preliminary Linear Regression Results - {model_name}.csv"
+    results_df = pd.DataFrame({
+        "Variable": model.params.index,
+        "Coefficient": model.params.values,
+        "Std Error": model.bse.values,
+        "t-value": model.tvalues.values,
+        "p-value": model.pvalues.values,
+    })
+    results_df.to_csv(out_csv, index=False)
+    print(f"Saved regression results to {out_csv}")
     # Residual plot
     plt.figure(figsize=(8, 6))
     plt.scatter(model.fittedvalues, model.resid, alpha=0.3)

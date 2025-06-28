@@ -146,24 +146,46 @@ Games that are more affordable, available in multiple languages, and contain vio
   - Weak correlation when including all games (many with zero players).
   - Moderate positive correlation (Pearson ≈ 0.25, Spearman ≈ 0.26) when focusing only on games with active players.
 - **Language Support & User Reception:**  
-  - Slight positive relationship, but weaker than for engagement.
+  - Slight positive correlation (Pearson ≈ 0.051, Spearman ≈ 0.165) when focusing only on games with active players.
 
-### Regression Results
+### Preliminary Linear Regression Results
 
 - **User Reception:**  
-  - Best explained by Metacritic score, number of tags, and price (negative effect).
-  - Language support is not a strong direct predictor.
-  - Final model explains ~41% of variance (R² = 0.41).
+  - User Reception = 0.5293 + 0.0476 × log_price − 0.0063 × violence_score + 0.0042 × no_sup_lang
+  - R-squared: 0.055
+    - Only about 5.5% of the variation in user reception is explained by price, violence, and languages.
+
 - **Player Engagement:**  
-  - Strongest predictors: achievements, Metacritic score, price, number of tags, and both text/audio language support.
-  - Final model explains ~51% of variance (R² = 0.51).
+  - Player engagement: log_concurrent_users_yesterday = -0.4430 + 0.8246 × log_price + 0.1204 × violence_score + 0.0888 × no_sup_lang
+  - R-squared: 0.213
+    - About 21.3% of the variation in player engagement is explained by price, violence, and languages.
 
 ### Lasso Regression
 
 - **Feature Selection:**  
   - Lasso shrinks unimportant coefficients to zero, highlighting the most robust predictors.
-  - For engagement: achievements, Metacritic score, price, tags, and language support are most important.
-  - For user reception: Metacritic score and tags are most important; price has a small negative effect.
+  - We used Lasso regression (with RFE-selected features) to identify the most important predictors for both user reception and player engagement, while reducing overfitting:
+    - User Reception:
+      - Key predictors: Metacritic score (strongest), number of tags, price (slight negative effect), game age, and violence score (small effects).
+      - Model fit: Explains ~39% of training and 44% of test variance.
+      - Insight: Metacritic score and tags are most influential; higher price slightly reduces user reception.
+    - Player Engagement:
+      - Key predictors: Achievements (strongest), Metacritic score, price, number of tags, and language support (text/audio).
+      - Model fit: Explains ~52% of training and 43% of test variance.
+      - Insight: Achievements, Metacritic score, and language support are most important for engagement.
+
+### Final Regression Results
+
+- **User Reception:**  
+  - user_reception_score = 0.1655 + ( 0.0070 × metacritic_score ) + ( 0.0060 × n_tags ) + ( − 0.0010 × price ) 
+  - Best explained by Metacritic score, number of tags, and price (negative effect).
+  - Final model explains ~41% of variance (R² = 0.41) in user reception scores.
+  - All predictors are highly statistically significant (p < 0.001)
+- **Player Engagement:**  
+  - log_concurrent_users_yesterday=​−5.8500+(0.0104×achievements)+(0.0967×n_tags)+(0.0638×metacritic_score)+(0.0834×no_sup_lang)+(0.0958×n_full_audio_lang)+(0.0537×price)​
+  - Strongest predictors: achievements, number of tags, metacritic score, language support, price.
+  - Final model explains ~51% of variance (R² = 0.51).
+  - All predictors are highly statistically significant (p < 0.001).
 
 ### Visual Diagnostics
 

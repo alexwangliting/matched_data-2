@@ -5,8 +5,9 @@ from sklearn.linear_model import LassoCV
 from sklearn.preprocessing import StandardScaler
 from sklearn.model_selection import train_test_split
 from typing import List
+import os
 
-INPUT_PATH = "matched_data/engineered_features.csv"
+INPUT_PATH = "04_FeatureEngineering_FeatureSelection/engineered_features.csv"
 PLOT_DIR = "matched_data/"
 
 OUTCOMES = [
@@ -42,6 +43,20 @@ def run_lasso(df: pd.DataFrame, y: str, X: List[str], model_name: str) -> None:
     for feat, coef in zip(X, lasso.coef_):
         print(f"  {feat}: {coef:.4f}")
     print(f"Train R^2: {lasso.score(X_train, y_train):.3f} | Test R^2: {lasso.score(X_test, y_test):.3f}")
+
+    # Save results as CSV
+    os.makedirs(PLOT_DIR, exist_ok=True)
+    results = pd.DataFrame({
+        'feature': X,
+        'coefficient': lasso.coef_
+    })
+    results['best_alpha'] = lasso.alpha_
+    results['train_r2'] = lasso.score(X_train, y_train)
+    results['test_r2'] = lasso.score(X_test, y_test)
+    csv_out_path = f"{PLOT_DIR}lasso_results_{model_name.replace(' ', '_').lower()}.csv"
+    results.to_csv(csv_out_path, index=False)
+    print(f"Saved {csv_out_path}")
+
     # Coefficient path plot
     plt.figure(figsize=(8, 6))
     m_log_alphas = -np.log10(lasso.alphas_)
