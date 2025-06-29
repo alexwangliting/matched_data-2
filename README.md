@@ -3,7 +3,7 @@
 
 ## Overview
 
-This project investigates how key features of PC games—**price, language availability, and violence level**—affect their performance on Steam, the world's largest digital distribution platform for PC games. We combine multiple public datasets, engineer relevant features, and apply robust statistical and machine learning methods to answer:  
+This project investigates how key features of PC games—**price, language availability, and violence level**—affect their performance on Steam, the world's largest digital distribution platform for PC games. We combine multiple public datasets, engineer relevant features, and apply regression to answer:  
 **How do price, language support, and violence content influence user reception and player engagement?**
 
 Our findings aim to inform game developers, publishers, and industry analysts about which factors most strongly drive a game's success.
@@ -248,7 +248,7 @@ Scripts for generating plots are in the same directory, e.g., `plot_correlation_
    cd ../06_lasso_regression
    python lasso_regression_rfe10.py
    ```
-6. **View results** in the generated `.csv` and `.png` files in the respective folders.
+6. **View results** in the `.csv` and `.png` files in the respective folders.
 
 ---
 
