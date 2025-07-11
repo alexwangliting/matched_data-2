@@ -6,8 +6,9 @@
 This project investigates how key features of PC games—**price, language availability, and violence level**—affect their performance on Steam, the world's largest digital distribution platform for PC games. We combine multiple public datasets, engineer relevant features, and apply regression to answer:  
 **How do price, language support, and violence content influence user reception and player engagement?**
 
-Our findings aim to inform game developers, publishers, and industry analysts about which factors most strongly drive a game's success.
+Our findings aim to inform game developers, publishers, and industry analysts about which factors most strongly drive a game's success. At the same time, we aim to highlight the social impact such as language and economic inclusivity of game design choice. 
 
+This invites a broader reflection through a social lenses. We often view video games through business or entertainment perspective and tend to forget that they are culture. They shape and reflect the values of the people who play them and raise a whole generation.
 ---
 
 ## Table of Contents
@@ -36,13 +37,13 @@ To quantify the impact of price, language support, and violence content on two k
 
 ### Research Questions
 
-1. **How does language support affect user reception and player engagement?**
-2. **What is the effect of price and violence content on these outcomes?**
+1. **How does language support affect user reception and player engagement? (Who feels included?) If popular games or the majority of the games include only 2 to 3 languages, does this limit global participation?**
+2. **What is the effect of price and violence content on these outcomes? (Who gets to play?) If only expensive games do well, what does that say about how fair and accessible gaming really is?**
 3. **Which features are the most robust predictors of game success?**
 
 ### Hypothesis
 
-Games that are more affordable, available in multiple languages, and contain violent content are likely to perform better in terms of both user reception and engagement.
+Games that are more affordable, available in multiple languages, and contain violent content are likely to perform better in terms of both user reception and engagement. As affordable games are more financially accessible and multilingual games reach more players across language barriers.
 
 ---
 
@@ -302,3 +303,5 @@ pip install -r requirements.txt
 - Kaggle and Steam Insights for public datasets.
 - scikit-learn and statsmodels for modeling tools.
 - matplotlib and seaborn for visualization.
+
+  We would like to sincerely thank you Professor Pien Chung-Pei and our Teacher Assistant Marcy in our Big Data for Social for Social Analysis class for their advice and assistance throughout the development of our project.
